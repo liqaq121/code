@@ -1,0 +1,1 @@
+bug在Tetris.cpp的ChangeShape函数中，靠墙变形有时会数组越界
