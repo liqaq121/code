@@ -5,35 +5,35 @@
 #pragma comment(lib,"winmm.lib")
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPreInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	//Éè¼Æ´°¿ÚÀà
+	//ï¿½ï¿½Æ´ï¿½ï¿½ï¿½ï¿½ï¿½æ”¹
 	wchar_t classname[50] = L"LZZGUIFoundation";
-	wchar_t titlename[50] = L"¾­µä¶íÂÞË¹·½¿é";
+	wchar_t titlename[50] = L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½";
 	WNDCLASS wc = { 0 };
 	wc.hbrBackground = CreateSolidBrush(RGB(255, 255, 255));
-	wc.hCursor = LoadCursor(NULL, IDC_ARROW);//ÏµÍ³¹â±ê´øNULL
+	wc.hCursor = LoadCursor(NULL, IDC_ARROW);//ÏµÍ³ï¿½ï¿½ï¿½ï¿½NULL
 	wc.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ICON2));
 	wc.lpfnWndProc = wndproc;
 	wc.style = CS_HREDRAW | CS_VREDRAW;
 	wc.lpszClassName = classname;
 	wc.hInstance = hInstance;
 
-	//×¢²á´°¿ÚÀà
+	//×¢ï¿½á´°ï¿½ï¿½ï¿½ï¿½
 	RegisterClass(&wc);
 
-	//´´½¨´°¿Ú
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	HWND hwnd = CreateWindow(classname, titlename, WS_OVERLAPPEDWINDOW, 200, 100, WND_WIDTH, WND_HEIGHT, NULL, NULL, hInstance, NULL);
 	
-	//ÏÔÊ¾¸üÐÂ´°¿Ú
+	//ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Â´ï¿½ï¿½ï¿½
 	ShowWindow(hwnd, SW_SHOW);
 	UpdateWindow(hwnd);
 
-	//ÏûÏ¢Ñ­»·
+	//ï¿½ï¿½Ï¢Ñ­ï¿½ï¿½
 	MSG msg;
 	while (GetMessage(&msg, NULL, 0, 0))
 	{
-		//ÐéÄâ¼üÏûÏ¢×ªÎª×Ö·ûÏûÏ¢
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢×ªÎªï¿½Ö·ï¿½ï¿½ï¿½Ï¢
 		TranslateMessage(&msg);
-		//·Ö·¢ÏûÏ¢
+		//ï¿½Ö·ï¿½ï¿½ï¿½Ï¢
 		DispatchMessage(&msg);
 	}
 
@@ -44,7 +44,7 @@ LRESULT wndproc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	switch (uMsg)
 	{
 	case WM_CREATE:
-		mciSendString(L"open Ò»ÎÇÌì»Ä.mp3 alias bgm", NULL, 0, NULL);
+		mciSendString(L"open Ò»ï¿½ï¿½ï¿½ï¿½ï¿½.mp3 alias bgm", NULL, 0, NULL);
 		mciSendString(L"play bgm repeat", NULL, 0, NULL);
 		OnCreate(hwnd);
 		break;
@@ -54,7 +54,7 @@ LRESULT wndproc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;
-	case WM_PAINT://¿Í»§ÇøÓÀ¾Ã»æÍ¼
+	case WM_PAINT://ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Í¼
 	{
 		PAINTSTRUCT ps = { 0 };
 		HDC hdc = BeginPaint(hwnd, &ps);
@@ -117,11 +117,11 @@ void DrawBlock(HDC hdc)
 	MoveToEx(hdc, 300, 150, NULL);
 	LineTo(hdc, WND_WIDTH, 150);
 
-	//´´½¨»­Ë¢
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¢
 	HBRUSH hbrush1 = CreateSolidBrush(RGB(255, 255, 0));
 	HBRUSH hbrush2 = CreateSolidBrush(RGB(255, 0, 0));
 	HBRUSH hbrush3 = CreateSolidBrush(RGB(255, 0, 255));
-	//»æÖÆ¶íÂÞË¹·½¿é
+	//ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½
 	for(int i = 0; i < 20; i++)
 		for (int j = 0; j < 10; j++)
 		{
@@ -136,42 +136,42 @@ void DrawBlock(HDC hdc)
 				Rectangle(hdc, j * 30 + 1, i * 30 + 1, (j + 1) * 30 - 1, (i + 1) * 30 - 1);
 			}
 		}
-	//»æÖÆÔ¤ÀÀÍ¼
+	//ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½Í¼
 	SelectObject(hdc, hbrush3);
 	for(int i=0;i<2;i++)
 		for (int j = 0; j < 4; j++)
 			if (g_prearr[i][j] == 1)
 				Rectangle(hdc, j * 30 + 330 + 1, i * 30 + 50 + 1, (j + 1) * 30 + 330 - 1, i * 30 + 80 - 1);
-	//»æÖÆÎÄ×ÖÐÅÏ¢
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	HFONT font = CreateFont(18, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE, DEFAULT_CHARSET,
 		OUT_OUTLINE_PRECIS,
-		CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, VARIABLE_PITCH, TEXT("¿¬Ìå"));
+		CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, VARIABLE_PITCH, TEXT("ï¿½ï¿½ï¿½ï¿½"));
 	SelectObject(hdc, font);
 	wchar_t scorearr[10] = { 0 };
-	wsprintf(scorearr, L"µ±Ç°·ÖÊý: %d", (int)g_facescore);
+	wsprintf(scorearr, L"ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½: %d", (int)g_facescore);
 	SetBkMode(hdc, 0);
-	TextOut(hdc, 350, 10, L"ÏÂÒ»¸ö", wcslen(L"ÏÂÒ»¸ö"));
+	TextOut(hdc, 350, 10, L"ï¿½ï¿½Ò»ï¿½ï¿½", wcslen(L"ï¿½ï¿½Ò»ï¿½ï¿½"));
 	TextOut(hdc, 330, 120, scorearr, wcslen(scorearr));
-	TextOut(hdc, 350, 190, L"ÓÎÏ·ËµÃ÷", wcslen(L"ÓÎÏ·ËµÃ÷"));
-	TextOut(hdc, 330, 230, L"»Ø³µ¼ü: ¿ªÊ¼ÓÎÏ·", wcslen(L"»Ø³µ¼ü: ¿ªÊ¼ÓÎÏ·"));
-	TextOut(hdc, 330, 270, L"¿Õ¸ñ¼ü: ÔÝÍ£/¼ÌÐø", wcslen(L"¿Õ¸ñ¼ü: ÔÝÍ£/¼ÌÐø"));
-	TextOut(hdc, 330, 310, L"Ïò×ó¼ü: ×óÒÆ", wcslen(L"Ïò×ó¼ü: ×óÒÆ"));
-	TextOut(hdc, 330, 350, L"ÏòÓÒ¼ü: ÓÒÒÆ", wcslen(L"ÏòÓÒ¼ü: ÓÒÒÆ"));
-	TextOut(hdc, 330, 390, L"ÏòÏÂ¼ü: ¼ÓËÙ", wcslen(L"ÏòÏÂ¼ü: ¼ÓËÙ"));
-	TextOut(hdc, 330, 430, L"ÏòÉÏ¼ü: ±äÐÎ", wcslen(L"ÏòÉÏ¼ü: ±äÐÎ"));
+	TextOut(hdc, 350, 190, L"ï¿½ï¿½Ï·Ëµï¿½ï¿½", wcslen(L"ï¿½ï¿½Ï·Ëµï¿½ï¿½"));
+	TextOut(hdc, 330, 230, L"ï¿½Ø³ï¿½ï¿½ï¿½: ï¿½ï¿½Ê¼ï¿½ï¿½Ï·", wcslen(L"ï¿½Ø³ï¿½ï¿½ï¿½: ï¿½ï¿½Ê¼ï¿½ï¿½Ï·"));
+	TextOut(hdc, 330, 270, L"ï¿½Õ¸ï¿½ï¿½: ï¿½ï¿½Í£/ï¿½ï¿½ï¿½ï¿½", wcslen(L"ï¿½Õ¸ï¿½ï¿½: ï¿½ï¿½Í£/ï¿½ï¿½ï¿½ï¿½"));
+	TextOut(hdc, 330, 310, L"ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½", wcslen(L"ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½"));
+	TextOut(hdc, 330, 350, L"ï¿½ï¿½ï¿½Ò¼ï¿½: ï¿½ï¿½ï¿½ï¿½", wcslen(L"ï¿½ï¿½ï¿½Ò¼ï¿½: ï¿½ï¿½ï¿½ï¿½"));
+	TextOut(hdc, 330, 390, L"ï¿½ï¿½ï¿½Â¼ï¿½: ï¿½ï¿½ï¿½ï¿½", wcslen(L"ï¿½ï¿½ï¿½Â¼ï¿½: ï¿½ï¿½ï¿½ï¿½"));
+	TextOut(hdc, 330, 430, L"ï¿½ï¿½ï¿½Ï¼ï¿½: ï¿½ï¿½ï¿½ï¿½", wcslen(L"ï¿½ï¿½ï¿½Ï¼ï¿½: ï¿½ï¿½ï¿½ï¿½"));
 }
 void OnCreate(HWND hwnd)
 {
 	memset(g_bkarr, 0, sizeof(g_bkarr));
 	InvalidateRect(hwnd, NULL, FALSE);
-	CreateBlock();//´´½¨·½¿é
+	CreateBlock();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	memcpy(g_tearr, g_prearr, sizeof(g_prearr));
 }
 void CreateBlock()
 {
 	memset(g_prert, 0, sizeof(g_prert));
 	srand((unsigned int)time(NULL));
-	//Éú³ÉËæ»úÊý
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int index = rand() % 7;
 	switch (index)
 	{
@@ -224,36 +224,36 @@ void CopyToBK(HWND hwnd)
 	g_tetype = g_pretype;
 	g_tept = g_prept;
 	memcpy(g_tert, g_prert, sizeof(g_prert));
-	//Éú³ÉÐÂÔ¤ÀÀ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½
 	CreateBlock();
 	InvalidateRect(hwnd, NULL, FALSE);
 }
 void OnReturn(HWND hwnd)
 {
-	CopyToBK(hwnd);//¸´ÖÆµ½±³¾°Êý×é
+	CopyToBK(hwnd);//ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	g_isover = FALSE;
 	g_isplay = TRUE;
 	SetTimer(hwnd, IDT_TIMER1, 500, NULL);
 }
 void OnTimer(HWND hwnd)
 {
-	if (FALSE == IsBottom() && FALSE == IsBlockTop())//ÔÚÏÂÂä
+	if (FALSE == IsBottom() && FALSE == IsBlockTop())//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		BlockDown(hwnd);
-	else//Í£ÁË
+	else//Í£ï¿½ï¿½
 	{
-		AdjustBlockState(hwnd);//µ÷Õû×´Ì¬Öµ
+		AdjustBlockState(hwnd);//ï¿½ï¿½ï¿½ï¿½×´Ì¬Öµ
 		ClearBlock(hwnd);
 		int res = IsGOver(hwnd);
-		if (res == 1)//ÖØÀ´
+		if (res == 1)//ï¿½ï¿½ï¿½ï¿½
 		{
 			OnCreate(hwnd);
 			return;
 		}
-		else if(res == 0)//ÍË³ö
+		else if(res == 0)//ï¿½Ë³ï¿½
 			exit(0);
-		//¼ÌÐø
-		memcpy(g_tearr, g_prearr, sizeof(g_prearr));//½«Ô¤ÀÀÍ¼¸´ÖÆµ½¶íÂÞË¹·½¿éÊý×é
-		CopyToBK(hwnd);//½«¶íÂÞË¹·½¿éÊý×é¸´ÖÆµ½±³¾°Êý×é
+		//ï¿½ï¿½ï¿½ï¿½
+		memcpy(g_tearr, g_prearr, sizeof(g_prearr));//ï¿½ï¿½Ô¤ï¿½ï¿½Í¼ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		CopyToBK(hwnd);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é¸´ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 }
 void BlockDown(HWND hwnd)
@@ -298,36 +298,36 @@ int IsGOver(HWND hwnd)
 		if (g_bkarr[0][i] == 2)
 		{
 			wchar_t str[50] = { 0 };
-			wsprintf(str, L"ÓÎÏ·½áÊø,ÊÇ·ñÖØÀ´?\n(ÄúµÄ·ÖÊýÎª:%d)", (int)g_facescore);
-			if (IDYES == MessageBox(hwnd, str, L"ÌáÊ¾", MB_YESNO | MB_ICONQUESTION))
+			wsprintf(str, L"ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½,ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½?\n(ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½Îª:%d)", (int)g_facescore);
+			if (IDYES == MessageBox(hwnd, str, L"ï¿½ï¿½Ê¾", MB_YESNO | MB_ICONQUESTION))
 			{
 				g_score = 0;
 				g_facescore = 0;
 				KillTimer(hwnd, IDT_TIMER1);
 				g_isplay = FALSE;
 				g_isover = TRUE;
-				return 1;//ÖØÀ´
+				return 1;//ï¿½ï¿½ï¿½ï¿½
 			}
 			else
 			{
-				return 0;//ÍË³ö
+				return 0;//ï¿½Ë³ï¿½
 			}
 		}
 	}
-	return -1;//ÓÎÏ·¼ÌÐø
+	return -1;//ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½
 }
 void OnLeft(HWND hwnd)
 {
-	//ÏÞÖÆ×ó±ß½ç
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½
 	for (int i = 0; i < 20; i++)
 		if (g_bkarr[i][0] == 1)
 			return;
-	//ÅÐ¶Ï×ó±ßÊÇ·ñÓÐ·½¿é
+	//ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ð·ï¿½ï¿½ï¿½
 	for (int i = 0; i < 20; i++)
 		for (int j = 0; j < 10; j++)
 			if (g_bkarr[i][j] == 1 && g_bkarr[i][j - 1] == 2)
 				return;
-	//×óÒÆ
+	//ï¿½ï¿½ï¿½ï¿½
 	for(int i=0;i<20;i++)
 		for (int j = 0; j < 10; j++)
 			if (g_bkarr[i][j] == 1)
@@ -340,16 +340,16 @@ void OnLeft(HWND hwnd)
 }
 void OnRight(HWND hwnd)
 {
-	//ÏÞÖÆÓÒ±ß½ç
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ò±ß½ï¿½
 	for (int i = 0; i < 20; i++)
 		if (g_bkarr[i][9] == 1)
 			return;
-	//ÅÐ¶ÏÓÒ±ßÊÇ·ñÓÐ·½¿é
+	//ï¿½Ð¶ï¿½ï¿½Ò±ï¿½ï¿½Ç·ï¿½ï¿½Ð·ï¿½ï¿½ï¿½
 	for (int i = 0; i < 20; i++)
 		for (int j = 0; j < 10; j++)
 			if (g_bkarr[i][j] == 1 && g_bkarr[i][j + 1] == 2)
 				return;
-	//ÓÒÒÆ
+	//ï¿½ï¿½ï¿½ï¿½
 	for (int i = 0; i < 20; i++)
 		for (int j = 9; j >= 0; j--)
 			if (g_bkarr[i][j] == 1)
@@ -403,11 +403,11 @@ void ClearBlock(HWND hwnd)
 }
 void OnSpace(HWND hwnd)
 {
-	if (g_isplay)//ÓÎÏ·Î´ÔÝÍ£
+	if (g_isplay)//ï¿½ï¿½Ï·Î´ï¿½ï¿½Í£
 	{
 		KillTimer(hwnd, IDT_TIMER1);
 	}
-	else//ÓÎÏ·ÔÝÍ£
+	else//ï¿½ï¿½Ï·ï¿½ï¿½Í£
 	{
 		SetTimer(hwnd, IDT_TIMER1, 500, NULL);
 	}
@@ -417,10 +417,10 @@ void ChangeShape(HWND hwnd)
 {
 	switch (g_tetype)
 	{
-	case 0://³¤Ìõ
+	case 0://ï¿½ï¿½ï¿½ï¿½
 		StripChange(hwnd);
 		break;
-	case 3://Õý·½ÐÎ
+	case 3://ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		break;
 	case 1:
 	case 2:
@@ -473,34 +473,34 @@ void StripChange(HWND hwnd)
 }
 void NormalChange(HWND hwnd)
 {
-	////¶¨ÒåÒ»¸öÁÙÊ±3x3Êý×é
-	////ÊµÏÖÊý×éÐý×ª-Ë³Ê±Õë
+	////ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ê±3x3ï¿½ï¿½ï¿½ï¿½
+	////Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ª-Ë³Ê±ï¿½ï¿½
 	int temp[3][3] = { 0 };
 	for(int i=0;i<3;i++)
 		for (int j = 0; j < 3; j++)
 			temp[j][2-i] = g_tert[i][j];
-	//ÏÞÖÆ±äÐÎ
-	//ÉÏ
+	//ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½
+	//ï¿½ï¿½
 	for (int i = 0; i < 3; i++)
 		for (int j = 0; j < 3; j++)
 			if (temp[i][j] == 1 && (g_tept.x + i < 0 || g_bkarr[g_tept.x + i][g_tept.y + j] == 2))
 				return;
-	//ÏÂ
+	//ï¿½ï¿½
 	for (int i = 2; i >= 0; i--)
 		for (int j = 0; j < 3; j++)
 			if (temp[i][j] == 1 && (g_tept.x + i > 19 || g_bkarr[g_tept.x + i][g_tept.y + j] == 2))
 				return;
-	//×ó
+	//ï¿½ï¿½
 	for (int i = 0; i < 3; i++)
 		for (int j = 0; j < 3; j++)
 			if (temp[j][i] == 1 && (g_tept.y + i < 0 || g_bkarr[g_tept.x + j][g_tept.y + i] == 2))
 				return;
-	//ÓÒ
+	//ï¿½ï¿½
 	for (int i = 0; i < 3; i++)
 		for (int j = 2; j >= 0; j--)
 			if (temp[j][i] == 1 && (g_tept.y + i > 19 || g_bkarr[g_tept.x + j][g_tept.y + i] == 2))
 				return;
-	//±äÐÎºóµÄÎ»ÖÃÊÇ·ñÓÐ2
+	//ï¿½ï¿½ï¿½Îºï¿½ï¿½Î»ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½2
 	for (int i = 0; i < 3; i++)
 		for (int j = 0; j < 3; j++)
 			if (g_tert[i][j] == 1 && g_bkarr[g_tept.x + i][g_tept.y + j] == 2)
