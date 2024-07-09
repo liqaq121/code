@@ -1,0 +1,12 @@
+﻿  Tetris.cpp
+D:\code\game\经典俄罗斯方块\Tetris.cpp(153,44): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\game\经典俄罗斯方块\Tetris.cpp(154,41): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\game\经典俄罗斯方块\Tetris.cpp(155,48): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\game\经典俄罗斯方块\Tetris.cpp(156,59): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\game\经典俄罗斯方块\Tetris.cpp(157,60): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\game\经典俄罗斯方块\Tetris.cpp(158,53): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\game\经典俄罗斯方块\Tetris.cpp(159,53): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\game\经典俄罗斯方块\Tetris.cpp(160,53): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\game\经典俄罗斯方块\Tetris.cpp(161,53): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\game\经典俄罗斯方块\Tetris.cpp(386,31): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+  经典俄罗斯方块.vcxproj -> D:\code\game\x64\Debug\经典俄罗斯方块.exe
